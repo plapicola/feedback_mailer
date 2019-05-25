@@ -1,4 +1,5 @@
 class Mail < ApplicationRecord
-  validate_presence_of :name
-  validate_presence_of :email
+  validates_presence_of :survey_name
+  validates_presence_of :user_name
+  validates_presence_of :email
 end
