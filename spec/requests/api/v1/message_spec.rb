@@ -16,12 +16,12 @@ RSpec.describe "Mails API", type: :request do
         }
       ]}
 
-      result = JSON.parse(request.body, symbolize_names: true)
+      result = JSON.parse(response.body, symbolize_names: true)
 
-      expect (response.status).to eq(201)
-      expect result.to be_a Hash
-      expect result.to have_key :success
-      expect result[:success].to eq("Your mails have been sent")
+      expect(response.status).to eq(201)
+      expect(result).to be_a Hash
+      expect(result).to have_key :success
+      expect(result[:success]).to eq("Your messages have been sent")
     end
   end
 end
