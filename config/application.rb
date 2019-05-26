@@ -9,7 +9,7 @@ require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
-require "action_cable/engine"
+# require "action_cable/engine"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -29,5 +29,24 @@ module FeedbackMailer
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.action_mailer.delivery_method = :smtp
+
+    # Handle CORS to primary backend
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:4000', 'turing-feedback-api.herokuapp.com'
+        resource '*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
+
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.sendgrid.net',
+      port:                 '587',
+      domain:               'turing-feedback-loop.herokuapp.com',
+      user_name:            'apikey',
+      password:             ENV["SENDGRID_API_KEY"],
+      authentication:       'plain',
+      enable_starttls_auto: true
+    }
   end
 end
