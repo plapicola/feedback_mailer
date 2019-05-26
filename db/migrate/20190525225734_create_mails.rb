@@ -1,6 +1,6 @@
 class CreateMails < ActiveRecord::Migration[5.2]
   def change
-    create_table :mails do |t|
+    create_table :messages do |t|
       t.string :email
       t.string :survey_name
 

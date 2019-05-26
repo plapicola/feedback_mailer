@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_05_25_231716) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "mails", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.string "email"
     t.string "survey_name"
     t.datetime "created_at", null: false
