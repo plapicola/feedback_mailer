@@ -34,7 +34,7 @@ module FeedbackMailer
     # Handle CORS to primary backend
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:4000', 'turing-feedback-api.herokuapp.com'
+        origins 'localhost:4000', 'turing-feedback-api.herokuapp.com', 'api.turingfeedback.com'
         resource '*', headers: :any, methods: [:get, :post, :options]
       end
     end
@@ -42,7 +42,7 @@ module FeedbackMailer
     config.action_mailer.smtp_settings = {
       address:              'smtp.sendgrid.net',
       port:                 '587',
-      domain:               'turing-feedback-loop.herokuapp.com',
+      domain:               'mail.turingfeedback.com',
       user_name:            'apikey',
       password:             ENV["SENDGRID_API_KEY"],
       authentication:       'plain',
