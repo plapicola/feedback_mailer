@@ -15,6 +15,6 @@ class Api::V1::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:messages)
+    params.require(:_json)
   end
 end
