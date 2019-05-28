@@ -1,4 +1,4 @@
-class Api::V1::MessagesController < ApplicationController
+class Api::V1::NewSurveyController < ApplicationController
 
   def create
     message_params.each do |message|

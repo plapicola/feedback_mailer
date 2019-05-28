@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe "Mails API", type: :request do
   describe "Mail Creation" do
     it "Creates and dispatches new mails" do
-      post "/api/v1/messages", params: {_json: [
+      allow_any_instance_of(SurveyMailer).to receive(:new_survey_notice).once
+      post "/api/v1/new_survey", params: {_json: [
         {
           email: "test@example.com",
           survey_name: "Cool Survey",
