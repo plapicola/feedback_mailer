@@ -1,11 +1,11 @@
-class Api::V1::MessagesController < ApplicationController
+class Api::V1::NewSurveyController < ApplicationController
 
   def create
     message_params.each do |message|
       new_message = Message.create({
         email: message[:email],
         user_name: message[:user_name],
-        survey_name: message[:survey_name]
+        message_name: message[:message_name]
       })
       SurveyMailer.new_survey_notice(new_message).deliver_later
     end
