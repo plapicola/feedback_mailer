@@ -1,6 +1,6 @@
 # Feedback Mailer
 
-This application is a microservice as a part of the larger FeedbackLoop project intended to alleviate the challenge of sourcing feedback between members of projects completed throughout the Turing School of Software and Design curriculum.
+This application is a microservice, which is part of the larger FeedbackLoop project. The project intends to alleviate the challenge of sourcing feedback between members of projects completed throughout the Turing School of Software and Design curriculum.
 
 ## Getting Started
 
